@@ -28,7 +28,7 @@ pipeline {
 
                     dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jenkins'){
                         git "https://github.com/jenkins-x/godog-jenkins"
-                        sh "make bdd-cluster"
+                        sh "make bdd-github"
                     }
                 }
             }
