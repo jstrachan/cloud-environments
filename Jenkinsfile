@@ -36,9 +36,9 @@ pipeline {
 
                         sh "env | grep GIT | sort"
 
-                        input "Wanna test?"
-                        
                         sh "./bdd-importurl.sh"
+
+                        input "Wanna test?"
                     }
                 }
             }
