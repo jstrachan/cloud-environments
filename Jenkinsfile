@@ -3,6 +3,10 @@ pipeline {
         GH_CREDS = credentials('jenkins-x-github')
         GKE_SA = credentials('gke-sa')
         TEST_USER = credentials('test-user')
+
+        TEST_PASSWORD = "$TEST_USER_PSW"
+        GIT_API_TOKEN = "$GH_CREDS_PSW"
+        GIT_USERNAME = "$GH_CREDS_USR"
     }
     agent {
         label "jenkins-go"
@@ -17,9 +21,6 @@ pipeline {
                 ZONE = "europe-west1-b"
                 PROJECT_ID = "jenkinsx-dev"
                 SERVICE_ACCOUNT_FILE = "$GKE_SA"
-                TEST_PASSWORD = "$TEST_USER_PSW"
-                GIT_API_TOKEN = "$GH_CREDS_PSW"
-                GIT_USERNAME = "$GH_CREDS_USR"
             }
             steps {
                 container('go') {
