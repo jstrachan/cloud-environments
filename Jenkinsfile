@@ -18,6 +18,8 @@ pipeline {
                 PROJECT_ID = "jenkinsx-dev"
                 SERVICE_ACCOUNT_FILE = "$GKE_SA"
                 TEST_PASSWORD = "$TEST_USER_PSW"
+                GIT_API_TOKEN = "$GH_CREDS_PSW"
+                GIT_USERNAME = "$GH_CREDS_USR"
             }
             steps {
                 container('go') {
@@ -29,6 +31,7 @@ pipeline {
                     dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jx') {
                         git "https://github.com/jenkins-x/godog-jx"
 
+                        sh "git config credential.helper store"
                         sh "./bdd-importurl.sh"
                     }
                 }
