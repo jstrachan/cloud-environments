@@ -34,6 +34,8 @@ pipeline {
 
                         sh "git config credential.helper store"
 
+                        sh "env | grep GIT | sort"
+
                         input "Wanna test?"
                         
                         sh "./bdd-importurl.sh"
