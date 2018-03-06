@@ -26,9 +26,10 @@ pipeline {
                         sh "jx create jenkins user --headless --password $TEST_PASSWORD admin"
                     }
 
-                    dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jenkins'){
-                        git "https://github.com/jenkins-x/godog-jenkins"
-                        sh "make bdd-github"
+                    dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jx') {
+                        git "https://github.com/jenkins-x/godog-jx"
+
+                        sh "./bdd-importurl.sh"
                     }
                 }
             }
