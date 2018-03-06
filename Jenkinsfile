@@ -32,6 +32,9 @@ pipeline {
                         git "https://github.com/jenkins-x/godog-jx"
 
                         sh "git config credential.helper store"
+
+                        input "Wanna test?"
+                        
                         sh "./bdd-importurl.sh"
                     }
                 }
