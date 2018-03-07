@@ -31,7 +31,7 @@ pipeline {
 
                     sh "jx version"
                     sh "jx get git server"
-                    sh "jx create git token -b -n GitHub -t $GIT_API_TOKEN $GIT_USERNAME"
+                    sh "jx create git token -b -u github.com -t $GIT_API_TOKEN $GIT_USERNAME"
 
                     dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jx') {
                         git "https://github.com/jenkins-x/godog-jx"
