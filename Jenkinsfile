@@ -29,6 +29,8 @@ pipeline {
                         sh "jx create jenkins user --headless --password $TEST_PASSWORD admin"
                     }
 
+                    sh "jx version"
+                    sh "jx get git server"
                     sh "jx create git token -b -n GitHub -t $GIT_API_TOKEN $GIT_USERNAME"
 
                     dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jx') {
