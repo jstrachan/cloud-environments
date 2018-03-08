@@ -36,7 +36,7 @@ pipeline {
                     dir ('/home/jenkins/go/src/github.com/jenkins-x/godog-jx') {
                         git "https://github.com/jenkins-x/godog-jx"
 
-                        sh "git config credential.helper store"
+                        sh "git config --global credential.helper store"
 
                         sh "env | grep GIT | sort"
 
