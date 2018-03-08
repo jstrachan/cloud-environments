@@ -26,7 +26,7 @@ pipeline {
                 container('go') {
                     sh "./jx/scripts/ci-gke.sh"
                     retry(3){
-                        sh "jx create jenkins user --headless --password $TEST_PASSWORD admin"
+                        sh "jx create jenkins token --headless --password $TEST_PASSWORD admin"
                     }
 
                     sh "jx version"
